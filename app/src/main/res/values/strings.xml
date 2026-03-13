@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Ganit</string>
+    <string-array name="digits">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="operators">
+        <item>+</item>
+        <item>-</item>
+        <item>/</item>
+        <item>*</item>
+    </string-array>
+    <string name="math_app_configure">Math App - Configure</string>
+    <string name="left_operand_digits">Left operand digits:</string>
+    <string name="right_operand_digits">Right operand digits:</string>
+    <string name="operator">Operator:</string>
+    <string name="start_button_text">Start</string>
+    <string name="QuestionText">%d %s %d= ?</string>
+    <string name="score">"Score: %d/%d"</string>
+    <string name="check_answer">Submit</string>
+    <string name="enter_your_answer">Enter your answer</string>
+    <string name="back_to_main">Back</string>
+    <string name="question_will_appear_here">Question will appear here</string>
+    <string name="score_t">Score: 0/0</string>
+</resources>
