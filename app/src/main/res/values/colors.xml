@@ -2,4 +2,7 @@
     <color name="purple_500">#6200EE</color>
     <color name="purple_700">#3700B3</color>
     <color name="teal_200">#03DAC5</color>
+
+    <color name="subtle_green">#E8F5E9</color>
+    <color name="subtle_red">#FFEBEE</color>
 </resources>
