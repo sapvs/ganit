@@ -1,55 +1,86 @@
 package io.vsaps.ganit;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class QuizActivity extends AppCompatActivity {
 
-	private TextView questionTextView;
+	private LinearLayout mainLayout;
+	private TextView questionTextView, scoreTextView, timerView;
 	private EditText answerEditText;
-	private TextView scoreTextView;
 
-	private int firstDigitLength;
-	private int secondDigitLength;
+	private int firstDigitLength, secondDigitLength, duration, correctCount, totalCount;
 	private String operator;
-	private int correctCount = 0;
-	private int totalCount = 0;
 
 	private double correctAnswer;
-
 	private final Random random = new Random(System.nanoTime());
+
+	private int SUBTLE_GREEN, SUBTLE_RED;
+
+	private CountDownTimer timer;
+
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		timer.cancel();
+	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz);
 
+
 		// Get intent data
 		firstDigitLength = getIntent().getIntExtra("leftSize", 1);
 		secondDigitLength = getIntent().getIntExtra("rightSize", 1);
 		operator = getIntent().getStringExtra("operator");
+		duration = getIntent().getIntExtra("duration", 30);
 
+		SUBTLE_GREEN = getResources().getColor(R.color.subtle_green, getTheme());
+		SUBTLE_RED = getResources().getColor(R.color.subtle_red, getTheme());
+
+		mainLayout = findViewById(R.id.main_layout);
 		questionTextView = findViewById(R.id.question);
 		answerEditText = findViewById(R.id.answer);
 		Button checkButton = findViewById(R.id.check_button);
 		Button backButton = findViewById(R.id.back_button);
 		scoreTextView = findViewById(R.id.score);
+		timerView = findViewById(R.id.timer);
+		scoreTextView.setText(getString(R.string.score, correctCount, totalCount));
+		Activity me = this;
 
-		// Load first question
-		loadNewQuestion();
 
-		// Check button click listener
-		checkButton.setOnClickListener(v -> checkAnswer());
+		timer = new CountDownTimer(TimeUnit.SECONDS.toMillis(duration), TimeUnit.SECONDS.toMillis(1)) {
+			@Override
+			public void onTick(long millisUntilFinished) {
+				timerView.setText(getString(R.string.timer, 1 + TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)));
+			}
 
-		// Back button click listener
-		backButton.setOnClickListener(v -> finish());
+			@Override
+			public void onFinish() {
+				new AlertDialog.Builder(me).setTitle("score").setMessage(scoreTextView.getText()).setPositiveButton("ok", (dialog, which) -> me.finish()).setOnDismissListener(dialog -> me.finish()).create().show();
+			}
+		};
+
+
+		timer.start();
+		loadNewQuestion();    // Load first question
+		checkButton.setOnClickListener(v -> checkAnswer()); // Check button click listener
+		backButton.setOnClickListener(v -> finish());        // Back button click listener
 	}
 
 	private void loadNewQuestion() {
@@ -65,7 +96,6 @@ public class QuizActivity extends AppCompatActivity {
 
 	private int generateRandomNumber(int digitLength) {
 		if (digitLength <= 1) {
-			// 1-digit number: 1..9
 			return random.nextInt(9) + 1;
 		}
 		int min = (int) Math.pow(10, digitLength - 1);
@@ -77,7 +107,6 @@ public class QuizActivity extends AppCompatActivity {
 	private double calculateAnswer(int first, int second, String op) {
 		return switch (op) {
 			case "+" -> first + second;
-//			case "-" -> first >= second ? first - second : second - first;
 			case "-" -> first - second;
 			case "*" -> first * second;
 			case "/" -> second != 0 ? (double) first / second : 0;
@@ -95,12 +124,11 @@ public class QuizActivity extends AppCompatActivity {
 
 		try {
 			double userAnswer = Double.parseDouble(userAnswerStr);
-
 			if (Math.abs(userAnswer - correctAnswer) < 0.0001) {
-				Toast.makeText(this, "Correct! ✓", Toast.LENGTH_SHORT).show();
 				correctCount++;
+				mainLayout.setBackgroundColor(SUBTLE_GREEN);
 			} else {
-				Toast.makeText(this, "Incorrect!.", Toast.LENGTH_SHORT).show();
+				mainLayout.setBackgroundColor(SUBTLE_RED);
 			}
 			updateScore();
 			loadNewQuestion();

@@ -4,7 +4,7 @@
     <application
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="@string/app_name"
+        android:label="@string/"
         android:theme="@style/Theme.Ganit">
         <activity android:name=".QuizActivity" />
         <activity

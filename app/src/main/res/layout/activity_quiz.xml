@@ -1,55 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp">
 
-    <TextView
-        android:id="@+id/score"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/score_t"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_marginBottom="30dp" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:text="@string/score"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/timer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_weight="1"
+            android:text="@string/timer"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:text="@string/question_will_appear_here"
-        android:textSize="28sp"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:layout_marginBottom="40dp" />
+        android:textSize="28sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/answer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:hint="@string/enter_your_answer"
-        android:inputType="numberSigned"
-        android:textSize="20sp"
+        android:importantForAutofill="no"
+        android:inputType="numberSigned|numberDecimal"
         android:padding="15dp"
-        android:layout_marginBottom="20dp" />
+        android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/check_button"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/check_answer"
-        android:textSize="18sp"
-        android:padding="15dp"
-        android:layout_marginBottom="15dp" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/back_to_main"
-        android:textSize="18sp"
-        android:padding="15dp" />
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="15dp"
+            android:text="@string/back_to_main"
+            android:textSize="18sp" />
 
+        <Button
+            android:id="@+id/check_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:padding="15dp"
+            android:text="@string/check_answer"
+            android:textSize="18sp" />
+    </LinearLayout>
 </LinearLayout>

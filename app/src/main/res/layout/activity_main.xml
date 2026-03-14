@@ -7,50 +7,100 @@
 
     <TextView
         android:id="@+id/text_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/math_app_configure"
-        android:textSize="20sp"
-        android:layout_marginBottom="16dp" />
+        android:textSize="40sp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/left_operand_digits" />
-
-    <Spinner
-        android:id="@+id/spinner_left_size"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:minHeight="48dp"
-        android:entries="@array/digits" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/right_operand_digits" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="@string/left_operand_digits"
+            android:textSize="20sp" />
 
-    <Spinner
-        android:id="@+id/spinner_right_size"
+        <Spinner
+            android:id="@+id/spinner_left_size"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/digits"
+            android:minHeight="48dp"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:minHeight="48dp"
-        android:entries="@array/digits" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/operator" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="@string/right_operand_digits"
+            android:textSize="20sp" />
 
-    <Spinner
-        android:id="@+id/spinner_operator"
+        <Spinner
+            android:id="@+id/spinner_right_size"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/digits"
+            android:minHeight="48dp"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:minHeight="48dp"
-        android:entries="@array/operators" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="@string/operator"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner_operator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/operators"
+            android:minHeight="48dp"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="@string/duration"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinner_duration"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:entries="@array/durations"
+            android:minHeight="48dp"
+            android:textSize="20sp" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_start"

@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 	private Spinner leftSizeSpinner;
 	private Spinner rightSizeSpinner;
 	private Spinner operatorSpinner;
+	private Spinner durationSpinner;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 		leftSizeSpinner = findViewById(R.id.spinner_left_size);
 		rightSizeSpinner = findViewById(R.id.spinner_right_size);
 		operatorSpinner = findViewById(R.id.spinner_operator);
+		durationSpinner = findViewById(R.id.spinner_duration);
 		Button startButton = findViewById(R.id.button_start);
 
 
@@ -28,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
 			int leftSize = Integer.parseInt((String) leftSizeSpinner.getSelectedItem());
 			int rightSize = Integer.parseInt((String) rightSizeSpinner.getSelectedItem());
 			String operator = (String) operatorSpinner.getSelectedItem();
+			int duration = Integer.parseInt((String) durationSpinner.getSelectedItem());
 
 			Intent intent = new Intent(this, QuizActivity.class);
 			intent.putExtra("leftSize", leftSize);
 			intent.putExtra("rightSize", rightSize);
 			intent.putExtra("operator", operator);
+			intent.putExtra("duration", duration);
+
 			startActivity(intent);
 		});
 	}
