@@ -3,8 +3,8 @@
 
     <application
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="@string/"
         android:theme="@style/Theme.Ganit">
         <activity android:name=".QuizActivity" />
         <activity
@@ -15,7 +15,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
-
 </manifest>
