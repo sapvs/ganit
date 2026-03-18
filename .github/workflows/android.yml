@@ -6,6 +6,9 @@ permissions:
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - "README.md"
+      - "img"
   pull_request:
     branches: [ "main" ]
 
