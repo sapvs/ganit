@@ -1,4 +1,4 @@
-# Ganit - Maths Quiz
+# Ganit - गणित - Maths Quiz
 
 A simple (currently) Android app for praticing maths, like addition, substraction, multiplication and ~~division~~.
 
