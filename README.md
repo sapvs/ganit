@@ -21,22 +21,23 @@ One of 10, 30, 60 or 120 seconds. Time for the quiz session.
 
 ## Screenshots
 ### Configure Screen
-![ganit1](img/ganit1.jpg)
+<img src="img/ganit1.jpg" alt="drawing" width="250"/>
 
 ### First Question
-![ganit2](img/ganit2.jpg)
+<img src="img/ganit2.jpg" alt="drawing" width="250"/>
 
 ### Previous answer was correct
-![ganit3](img/ganit3.jpg)
-
+<img src="img/ganit3.jpg" alt="drawing" width="250"/>
 
 Notice the background color changes to pastel green for indicating this.
 
 ### Previous answer was incorrect
-![ganit4](img/ganit4.jpg)
+<img src="img/ganit4.jpg" alt="drawing" width="250"/>
+
 
 Notice the background color changes to pastel red for indicating this.
 
 ### Score 
-![ganit5](img/ganit5.jpg)
+<img src="img/ganit5.jpg" alt="drawing" width="250"/>
+
 
