@@ -1,7 +1,7 @@
 # Ganit - गणित - Maths Quiz
+![गणित](app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp)
 
 A simple (currently) Android app for praticing maths, like addition, substraction, multiplication and ~~division~~.
-
 
 User is provided questions with two operands and an operator. App will continue to generate questions until either timer passes, or the user quits.
 
